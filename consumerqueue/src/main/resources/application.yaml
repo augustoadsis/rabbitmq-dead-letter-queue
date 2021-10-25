@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  rabbitmq:
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 3s
+          max-attempts: 6
+          max-interval: 10s
+          multiplier: 2
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+queue:
+  notification:
+    name: notification.queue
+    exchange: notification.exchange
